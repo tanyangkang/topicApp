@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="werun">
+  <button class="rank-button" bindtap="goToRank">排行榜</button>
+  <view wx:if="{{errorMsg}}" class="p-a ta-c error" style="margin-top:20rpx;">{{errorMsg}}</view>
+  <view class="userinfo">
+    <image wx:if="{{userInfo.avatarUrl}}" animation="{{animationRotate}}" class="userinfo-avatar {{heloEnabled?'helo':''}}" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="fs-32 userinfo-nickName">{{userInfo.career || userInfo.nickName}}</text>
+    <!-- <button class="rank-button" bindtap="goToRank">排行榜</button> -->
+  </view>
+  <view wx:if="{{recStep||weekStep}}" class="ta-c p-r" style="margin-top: 100rpx;">
+    <view animation="{{weekIncrease}}">
+      <image class="run-p" src="/images/littlefatman.gif"></image>
+    </view>
+    <view class="p-r" style="top: -24rpx;">
+      <view class="d-ib fs-24 p-r progress-bar-wrap o-h m-a">
+        <view animation="{{recIncrease}}" class="p-a animate bc-danger h-100_ w-0 b-r-1"></view>
+        <view animation="{{weekIncrease}}" class="p-a animate bc-primary h-100_ w-0 b-r-1"></view>
+      </view>
+      <view class="d-f f-w-sb">
+        <text class="text-num">{{weekStep}}/{{recStep}}</text>
+        <text class="text-ratio">{{ratio}}%</text>
+      </view>
+    </view>
+
+    <view wx:if="{{recStep-weekStep>0}}" class="msg ta-l m-a">建议今天继续走<text class="c-danger">{{recStep-weekStep}}</text>步，加油~</view>
+    <view wx:if="{{recStep-weekStep<=0}}" class="msg ta-l m-a">今日目标完成，明天再接再厉哦~</view>
+    <button wx:if="{{prepareAuth}}" open-type="getUserInfo" bindgetuserinfo="start" type="primary" plain="true">点击召唤小秘书</button>
+    <!--兼容-->
+    <!-- <button wx:if="{{sdk!=='1.4'&&prepareAuth}}" type="primary" plain="true" bindtap="start">点击召唤小秘书</button> -->
+  </view>
+</view>

@@ -1,0 +1,68 @@
+/* pages/members/members.wxss */
+.member-item {
+  border: 1px solid #e4e7ed;
+  margin-bottom: -1px;
+  font-size: 12px;
+  padding: 5px;
+}
+.member-item .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F1F3F6;
+  margin-right: 10px;
+}
+.member-item .avatar image {
+  width: 30px;
+  height: 30px;
+}
+.member-item .info {
+  height: 30px;
+}
+.member-item .btns {
+  float: right;
+  line-height: 30px;
+}
+.member-item .btn {
+  padding: 0 5px;
+  color: #8fc3ff;
+  cursor: pointer;
+}
+.member-item .openid {
+  font-size: 8px;
+}
+.maskfull {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+.edit-form {
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  background: white;
+  position: absolute;
+  top: 50rpx;
+  left: 20rpx;
+  right: 20rpx;
+}
+.edit-form .form-line {
+  border: none;
+}
+.edit-form .input {
+  border: 1px solid #ececec;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.edit-form .btns {
+  margin: 20px 31rpx 31rpx;
+}
+.edit-form .btn {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 10px;
+}

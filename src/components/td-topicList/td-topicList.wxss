@@ -1,0 +1,68 @@
+/* components/td-topicList/td-topicList.wxss */
+.topicBox {
+  background-color: #fff;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  padding: 14rpx 6rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: inherit;
+}
+.topicBox:last-child {
+  border-bottom: 0;
+}
+.view-left {
+  width: 14%;
+  height: 100%;
+}
+.view-right {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.imagegpsBox {
+  width: 25rpx;
+  height: 25rpx;
+}
+.headImg {
+  width: 38px;
+  height: 38px;
+  margin-top: 6rpx;
+  margin-left: 10rpx;
+  border-radius: 10%;
+}
+.authName {
+  font-size:16px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.hotTag {
+  float: right;
+  margin-right: 3rpx;
+}
+.textContent {
+  font-size: 15px;
+  padding: 12rpx 0;
+}
+
+.gpsContent {
+  font-size:14px;
+  color:#3498DB;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  margin: 10px 0px;
+}
+.timeinstance {
+  height:15px;
+  line-height:15px;
+  display:flex;
+  color:#ccc;
+  font-size:12px;
+  margin-top: 3px;
+}
+.view-empty {
+  width: 3%;
+}

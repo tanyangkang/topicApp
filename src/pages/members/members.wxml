@@ -1,0 +1,66 @@
+
+<view class='member-list'>
+  <form class="form">
+    <picker style="padding: 0 5px;" bindchange="bindPickerChange" value="{{filterIndex}}" range="{{filterOptions}}" range-key="label">
+      <view class="picker">
+        选择成员：{{filterOptions[filterIndex].label}}（{{memberList.length}}）
+      </view>
+    </picker>
+    <view wx:if="{{filterOptions[filterIndex].key==='name'}}" class="form-line fs-28 bc-f d-f p-r">
+      <label class="label">搜索名称：</label> 
+      <input class="input f-1" name="filterValue" focus="true" value="{{filterValue}}" bindconfirm="onsearch" />
+    </view>
+  </form>
+  <!-- <view class=''>
+    <view class='d-ib'>
+      <text data-id="{{'thisWeek'}}" bindtap="tabClick" class="tab-item {{tabSelected==='thisWeek'?'active':''}}">本周</text>
+      <text data-id="{{'lastWeek'}}" bindtap="tabClick" class="tab-item {{tabSelected==='lastWeek'?'active':''}}">上周</text>
+    </view>
+    <view class='f-r'>
+      <text data-id="{{'asc'}}" bindtap="sort" class="tab-item {{order==='asc'?'active':''}}">正序</text>
+      <text data-id="{{'desc'}}" bindtap="sort" class="tab-item {{order==='desc'?'active':''}}">倒序</text>
+    </view>
+  </view> -->
+  <view class="member-item" wx:for="{{memberList}}" wx:key="_id">
+    <view class="avatar ta-c d-ib va-b p-r {{item.className}}">
+      <image animation="{{item.animationRotate}}" class="userinfo-avatar m-a" background-size="cover" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="d-ib info">
+      <!-- <text class="index">{{index+1}}</text> -->
+      <text class="name">{{item.name||item.nickName}}{{item.isAdmin?'（管理员）':''}}</text>
+      <text class="phone">{{item.phone}}</text>
+      <text class="openid d-b">{{item.openid}}</text>
+    </view>
+      <view class="d-ib btns">
+        <view class='d-ib btn' bindtap='edit' data-item="{{item}}">编辑</view>
+        <view class='d-ib btn' data-item="{{item}}" data-openid="{{item.openid}}" data-name="{{item.name}}" bindtap='delete'>删除</view>
+      </view>
+  </view>
+</view>
+
+<view class="maskfull" wx-if="{{editable}}">
+  <form class="form edit-form" bindsubmit="submitEdit">
+    <view wx:if="{{form.$invalidMsg && form.$dirty}}" class="invalid">
+      {{form.$invalidMsg}}
+    </view>
+    <view class="form-title fs-30">
+      编辑称呼
+    </view>
+    <view class="form-title c-9d fs-28 bc-f">
+      <label class="label">微信昵称</label>
+      <text>{{editItem.nickName}}</text>
+    </view>
+    <view class="form-line fs-28 bc-f d-f p-r">
+      <label class="label">团队称呼</label> 
+      <input class="input f-1" name="name" maxlength="20" focus="true" value="{{editItem.name}}" />
+    </view>
+    <view class="form-line fs-28 bc-f d-f p-r">
+      <label class="label">管理员身份</label> 
+      <switch class="f-1" name="isAdmin" checked="{{editItem.isAdmin}}" value="{{editItem.isAdmin}}" />
+    </view>
+    <view class='ta-r btns'>
+      <button class="cancel btn" bindtap='cancelEdit'>取消</button>
+      <button form-type="submit" loading="{{editSubmiting}}" disabled="{{editSubmiting}}" class="submit btn info-btn">提交</button>
+    </view>
+  </form>
+</view>

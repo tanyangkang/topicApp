@@ -1,0 +1,3 @@
+!{lib,tests}/**/.*.js
+/miniprogram_npm/*
+**/iconfont/**

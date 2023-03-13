@@ -1,0 +1,26 @@
+<scroll-view wx:if="{{ready}}" bindscrolltolower="btnLoadMore" scroll-y='true' enable-back-to-top scroll-with-animation="true" style='width:100%;height: 100vh;' bindscroll="srollViewTop" scroll-top="{{top}}" bindrefresherrefresh="loadRefresh" refresher-enabled="true" refresher-triggered ="{{refresh}}">
+  <view>
+    <view wx:if="{{topNotice != null}}">
+      <van-notice-bar
+        left-icon="volume-o"
+        scrollable="{{ true }}"
+        color="#1989fa"
+        background="#ecf9ff"
+        speed="50"
+        text="{{topNotice.text}}"
+      />
+    </view>
+    <!-- 轮播图 -->
+    <td-swiper items="{{topbanner}}" bind:itemtap="onBannerItemTap"></td-swiper>
+    <!-- 话题列表 -->
+    <view>
+      <td-topicList topicList="{{list}}"></td-topicList>
+      <view wx:if="{{list.length > topicPageSize}}" bindtap="btnLoadMore" style="font-size:13px;color:#999;text-align:center;padding:10px;">
+        暂无更多话题
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view hidden="{{Top}}" class="backtop-float" bindtap="goTocreatTopic">
+  +
+</view>

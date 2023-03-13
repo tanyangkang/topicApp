@@ -1,0 +1,21 @@
+
+<!-- 审批管理 -->
+<view class='member-list'>
+  <view class="member-item" wx:for="{{memberList}}" wx:key="_id">
+    <view class="avatar ta-c d-ib va-b p-r {{item.className}}">
+      <image animation="{{item.animationRotate}}" class="userinfo-avatar m-a" background-size="cover" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="d-ib info">
+      <!-- <text class="index">{{index+1}}</text> -->
+      <text class="name">{{item.nickName||'未命名'}}</text>
+      <!-- <text class="nickName">（{{item.nickName}}）</text> -->
+      <text class="phone">{{item.phone}}</text>
+      <text class="openid d-b">{{item.openid}}</text>
+    </view>
+      <view class="d-ib btns">
+        <view wx-if="{{item.statusCode}}">{{item.statusText}}</view>
+        <view wx-if="{{!item.statusCode}}" class='d-ib btn' data-code="{{1}}" data-openid="{{item.openid}}" data-nickName="{{item.nickName}}" data-item="{{item}}" bindtap='approve'>通过</view>
+        <view wx-if="{{!item.statusCode}}" class='d-ib btn' data-code="{{2}}" data-openid="{{item.openid}}" data-nickName="{{item.nickName}}" data-item="{{item}}" bindtap='approve'>拒绝</view>
+      </view>
+  </view>
+</view>

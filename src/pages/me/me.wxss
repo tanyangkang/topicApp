@@ -1,0 +1,111 @@
+/* pages/me/timeline.wxss */
+page {
+  background: #f2f2f2;
+}
+
+view {
+  box-sizing: border-box;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.circular-bg {
+  background: #fff;
+  padding: 10px;
+  background: #d46831;
+  background: linear-gradient(200deg, #d46831 2%, #311973 120%);
+  color: #fff;
+}
+
+.bd {
+  padding: 6em 1em 0.6em;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5em;
+}
+
+.nickName {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.step-text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.todo-num {
+  color:rgb(248, 239, 153);
+  margin: 0 4px;
+  display: inline-block;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: rgb(244, 251, 255);
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 60px;
+  height: 60px;
+}
+
+.progress-bar-wrap {
+  color: #fff;
+  width: 100%;
+  height: .7em;
+  line-height: 2em;
+  border-radius: 1em;
+  overflow: hidden;
+  background: #EFEFEF;
+  box-shadow: inset 0px 2px 3px 0px rgba(202, 201, 194, 0.3);
+  border: 1px solid #EFEFEF;
+}
+
+.run-p {
+  width: 48px !important;
+  height: 48px !important;
+  float: right;
+  transform: translateX(10px) translateY(10px);
+}
+
+.text-num,
+.text-ratio {
+  color: #fff675;
+  font-size: 12px;
+}
+
+.operation-wrap {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.operation-content {
+  width: 100%;
+  background: #fff;
+  padding: 15px 10px;
+}
+
+.operation-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  transform: translateY(2px);
+}
+
+.operation {
+  width: 100%;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.815);
+}

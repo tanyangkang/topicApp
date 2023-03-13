@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "td-topicList": "/components/td-topicList/td-topicList"
+  }
+}

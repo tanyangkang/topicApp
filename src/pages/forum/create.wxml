@@ -1,0 +1,49 @@
+<!-- 新建话题 -->
+<view style="height: 100%;">
+  <view>
+    <van-button type="primary" size="small" style="float: right; margin: 6px 10px 0px 0px" bindtap="btnPost" loading="{{loading}}" loading-text="发布中">发表</van-button>
+  </view>
+  <view style='width:100%;background: #fff;padding:0px 10px;'>
+    <textarea bindinput='textAreaInput' value="{{text}}" maxlength="10000" placeholder="这一刻的想法..." name="textarea" style="width:100%; height: 80px; background: #fff;font-size:15px;padding-top:20px; padding-left: 20rpx;"></textarea>
+    <view style="width:100%; margin-top:10px;background:#fff; margin-left: 15px;">
+      <view>
+        <view class="weui-uploader__bd">
+        <!-- 图片、视频预览 -->
+          <view>
+            <block wx:for="{{files}}" wx:key="index" wx:for-item="item">
+              <view wx:if="{{item.type === 'image'}}" class="weui-uploader__file" id="img_{{index}}">
+                <image class="weui-uploader__img" bindtap="previewImage" bindlongpress="deleteImage" src="{{item.url}}" mode="aspectFill" id="img_{{index}}" />
+              </view>
+              <view wx:if="{{item.type === 'video'}}" class="weui-uploader__file" id="img_{{index}}">
+                <video class="weui-uploader__img" src="{{item.url}}"></video>
+              </view>
+            </block>
+          </view>
+            <!-- 图片、视频上传 -->
+            <view wx:if="{{files.length<maxfile}}">
+              <view bindtap="chooseImage" class="weui-uploader__input-box">
+                <image class="operation-image" src="/images/photos.png"></image>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view style="width:100%;height:1px;background:#ccc;margin-top:10px;"></view>
+    <!-- 选话题 -->
+    <van-cell icon="/images/topic_off.png" size="large" clickable title="选话题" is-link center bindtap="btnChooseTopic"></van-cell>
+    
+    <!-- 位置 -->
+    <van-cell icon="/images/Location.png" size="large" clickable is-link center bindtap="btnChooseLocation">
+      <view slot="title">
+        <view class="van-cell-text">{{gpsaddr}}</view>
+      </view>
+    </van-cell>
+    <!-- 提醒谁看 -->
+    <van-cell icon="/images/@.png" size="large" clickable title="提醒谁看" is-link center bindtap="btnChooseUser"></van-cell>
+    <van-cell wx:if="{{showAnonymous == 1}}" icon="/images/secret.png" size="large" title="匿名">
+      <view slot="right-icon">
+        <van-switch checked="{{ checked }}" bind:change="onChange" size="25px" />
+      </view>
+    </van-cell>
+  </view>
+</view>

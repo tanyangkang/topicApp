@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "td-swiper": "/components/td-swiper/td-swiper",
+    "td-topicList": "/components/td-topicList/td-topicList"
+  },
+  "navigationBarTitleText": "梯度公社"  
+}

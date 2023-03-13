@@ -1,0 +1,25 @@
+{
+  "name": "tidu-assistant",
+  "version": "2.0.0",
+  "miniprogram": "dist",
+  "scripts": {
+    "lint": "export NODE_ENV=development; eslint \"./**/*.{ts,js}\""
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.10.5",
+    "dayjs": "^1.11.6",
+    "wl-pinyin": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/eslint-parser": "^7.19.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "~14.0.0",
+    "eslint-config-fdio": "insiders",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.0.0"
+  }
+}

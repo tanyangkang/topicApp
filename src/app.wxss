@@ -1,0 +1,29 @@
+/**app.wxss**/
+@import 'style/weui.wxss';
+@import 'style/ezui.wxss';
+@import 'style/iconfont.wxss';
+@import 'style/form.wxss';
+@import 'style/color.wxss';
+@import 'style/property.wxss';
+@import 'style/font.wxss';
+
+page{
+  width: 100%;
+  height: 100%;
+  /* font-family: Verdana; */
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+view{
+  box-sizing: border-box;
+}

@@ -1,0 +1,16 @@
+<view class="container">
+  <swiper class="swiper-box" bind:change="handleSwiperChange" autohandleSwiperItemTapplay='true' circular='true' autoplay="true" duration="{{450}}" interval="{{4000}}" easing-function="default">
+    <block wx:for="{{items}}" wx:key="index">
+      <swiper-item>
+        <image class="targetImg" src="{{item.imageUrl}}" mode="scaleToFill" bindtap="handleSwiperItemTap" data-index="{{index}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="dots">
+    <view class="dotsBox">
+      <block wx:for="{{items}}" wx:key="index">
+          <text class="dot {{index == currentIndex ? 'dot-active' : ''}}"></text>
+      </block>
+    </view>
+  </view>
+</view>

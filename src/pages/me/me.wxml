@@ -1,0 +1,86 @@
+<!-- 我的 -->
+<view>
+  <view class="circular-bg p-r">
+    <view class="bd">
+      <view class="userInfo">
+        <view>
+          <view class="nickName">{{userInfo.name}}</view>
+          <view class="step-text">
+            <view wx:if="{{recStep-weekStep>0}}">建议今天继续走<text class="todo-num">{{recStep-weekStep}}</text>步，加油~</view>
+            <view wx:if="{{recStep-weekStep<=0}}">今日目标完成，明天再接再厉哦~</view>
+          </view>
+        </view>
+        <view class="avatar">
+          <image class="avatar-img" src="{{userInfo.avatarUrl}}"></image>
+        </view>
+      </view>
+      <view class="ta-c">
+        <view animation="{{weekIncrease}}" class="w-0" style="min-width: 5%;max-width: 100%;">
+          <image class="run-p" src="/images/littlefatman.gif"></image>
+        </view>
+        <view>
+          <view class="d-ib fs-24 p-r progress-bar-wrap o-h m-a">
+            <view animation="{{recIncrease}}" class="p-a animate bc-danger h-100_ w-0 b-r-1"></view>
+            <view animation="{{weekIncrease}}" class="p-a animate bc-primary h-100_ w-0 b-r-1"></view>
+          </view>
+          <view class="d-f f-w-sb">
+            <text class="text-num">{{weekStep}}/<text class="text-bold">{{recStep}}</text></text>
+            <text class="text-ratio">{{ratio}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 团队称呼 -->
+  <view class="operation-wrap">
+    <!-- <view bindtap="btnChangeCareer" class="operation-content">
+      <view class="operation">
+        <image class="operation-icon" src="/images/team.png" />
+        <text class="fw-6">姓名</text>
+        <view style="float:right;text-align:right;color: #666;">
+          {{userInfo.name || ''}}
+          <image class="operation-icon" src="/images/go.png" />
+        </view>
+      </view>
+    </view> -->
+    <!-- 步数排行榜 -->
+    <view class="operation-content">
+      <view bindtap="goToRank" class="operation">
+        <image class="operation-icon" src="/images/rank.png" />
+        <text class="fw-6">步数排行榜</text>
+        <view style="float:right;text-align:right;">
+          <image class="operation-icon" src="/images/go.png" />
+        </view>
+      </view>
+    </view>
+    <!-- 谁@了我 -->
+    <!-- <view class="operation-content">
+      <view bindtap="goTo" class="operation">
+        <image class="operation-icon" src="/images/@.png" />
+        <text class="fw-6">谁@了我</text>
+        <view style="float:right;text-align:right;">
+          <image class="operation-icon" src="/images/go.png" />
+        </view>
+      </view>
+    </view> -->
+    <!-- 管理员 -->
+    <!-- <view wx:if="{{userInfo.isAdmin}}" class="operation-content">
+      <view bindtap="goToMember" class="operation">
+        <image class="operation-icon" src="/images/menber.png" />
+        <text class="fw-6">成员管理</text>
+        <view style="float:right;text-align:right;">
+          <image class="operation-icon" src="/images/go.png" />
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{userInfo.isAdmin}}" class="operation-content">
+      <view bindtap="goToApproval" class="operation">
+        <image class="operation-icon" src="/images/approval.png" />
+        <text class="fw-6">审批管理</text>
+        <view style="float:right;text-align:right;">
+          <image class="operation-icon" src="/images/go.png" />
+        </view>
+      </view>
+    </view> -->
+  </view>
+</view>

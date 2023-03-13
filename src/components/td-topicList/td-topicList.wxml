@@ -1,0 +1,40 @@
+<!-- 头像、姓名、热门 -->
+<block wx:for="{{topicList}}" wx:key="id">
+  <view class="topicBox" hover-class="hover-class">
+    <view class="view-left" id="{{item.id}}" catchtap="linkToDetail">
+      <image wx:if="{{item.authorInfo.avatarUrl}}" lazy-load='true' src="{{item.authorInfo.avatarUrl}}" class="headImg"></image>
+      <image wx:else src="/images/default_pic.png" class="headImg" />
+    </view>
+    <view class="view-right">
+      <view id="{{item.id}}" catchtap="linkToDetail">
+        <view>
+          <text class="authName">{{item.authorInfo.name || '-'}}</text>
+          <van-tag wx:if="{{item.istop == 1}}" type="danger" class="hotTag">置顶</van-tag>
+          <van-tag wx:if="{{item.commentSum > 10}}" type="danger" class="hotTag">热门</van-tag>
+          <!-- <image wx:if="{{item.istop == 1}}" src="/images/ZD.png" mode="aspectFit" class="hotImage"/> -->
+          <!-- <image wx:if="{{item.commentSum > 1}}" src="/images/hot.png" mode="aspectFit" class="hotImage"/> -->
+        </view>
+        <text class="timeinstance">发布于 {{item.timedistance}}</text>
+      </view>
+      <view>
+        <view class="textContent">
+          <rich-text nodes="{{item.text}}" id="{{item.id}}" catchtap="linkToDetail"></rich-text>
+        </view>
+        <view class="grid-item-container" style="margin-top: 16rpx;">
+          <block wx:for="{{item.newpics}}" wx:for-index="index" wx:key="index" wx:for-item="imgItem">
+            <view class="grid-item-child">
+              <image wx:if="{{imgItem.type == 'image'}}" lazy-load='true' mode="aspectFill" src="{{imgItem.url}}" style="width: 100%; height: 100%;" id="{{item.id}}" bindtap="linkToDetail"></image>
+              <video wx:else src="{{imgItem.url}}" style="width: 100%; height: 100%;"></video>
+            </view>
+          </block>
+        </view>
+        <view wx:if="{{item.gps!==''}}" class="gpsContent" id="{{item.id}}" catchtap="linkToDetail">
+          <image wx:if="{{item.gpsaddr !== ''}}" class="imagegpsBox" src="/images/Location.png"></image>
+          {{item.gpscity}}{{item.gpscity==''?'':'·'}}{{item.gpsaddr}}
+        </view>
+      </view>
+    </view>
+    <view class="view-empty" id="{{item.id}}" catchtap="linkToDetail">
+    </view>
+  </view>
+</block>

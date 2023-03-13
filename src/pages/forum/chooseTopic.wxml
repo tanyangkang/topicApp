@@ -1,0 +1,9 @@
+<view wx:if="{{topicList !== null}}" class="topicStyle">
+  <block wx:for="{{topicList}}" wx:key="index">
+    <view class="topicItem" bindtap="btnChooseTopic" data-index="{{index}}">
+      <image lazy-load='true' class="topic-image" src="/images/topic_on.png" />
+      <text>{{topicList[index].title}}</text>
+    </view>
+  </block>
+</view>
+<van-empty wx:else description="未找到话题" />

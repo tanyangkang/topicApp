@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/billboard/index",
+    "pages/billboard/create",
+    "pages/forum/index",
+    "pages/forum/topiclist",
+    "pages/forum/detail",
+    "pages/forum/create",
+    "pages/me/me",
+    "pages/me/login",
+    "pages/me/userlist",
+    "pages/werun/index",
+    "pages/werun/rank",
+    "pages/members/members",
+    "pages/approval/approval",
+    "pages/webview/index",
+    "pages/forum/chooseTopic",
+    "pages/forum/chooseUser"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-index-bar": "@vant/weapp/index-bar/index",
+    "van-index-anchor": "@vant/weapp/index-anchor/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-tag": "@vant/weapp/tag/index"
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
+  "window": {
+    "backgroundColor": "#f2f2f2",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "梯度公社"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#000",
+    "borderStyle": "black",
+    "selectedColor": "#55D98D",
+    "list": [
+      {
+        "pagePath": "pages/billboard/index",
+        "iconPath": "images/home_off.png",
+        "selectedIconPath": "images/home_on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/forum/create",
+        "iconPath": "images/topic_off.png",
+        "selectedIconPath": "images/topic_on.png",
+        "text": "新建话题"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/me_off.png",
+        "selectedIconPath": "images/me_on.png",
+        "text": "我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

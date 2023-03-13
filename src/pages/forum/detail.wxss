@@ -1,0 +1,91 @@
+/* pages/forum/detail.wxss */
+page
+{
+  background: #f2f2f2;
+}
+.comment-container {
+  width:100%;
+  margin-top:5px;
+  background:#fff;
+}
+.carco {
+  width:100%;
+  font-size:14px;
+  font-weight:bold;
+  padding:10px;
+}
+.carco text {
+  margin-left: 12rpx;
+  font-weight:normal;
+}
+.emptyBox {
+  width:100%;
+  height:2px;
+  background:#f2f2f2;
+}
+.comment-list {
+  background:#fff;
+  width:100%;
+  padding:10px 10px;
+  border-bottom:#f2f2f2 1px solid;
+}
+.comment-list image {
+  margin-left: 10rpx;
+  width:40rpx;
+  height:40rpx;
+  border:#f2f2f2 1px solid;
+  border-radius:24rpx;
+}
+.nickName {
+  font-size:12px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  height:24px;
+  line-height:24px;
+}
+.btnAction {
+  color:#999;
+  margin-right: 10rpx;
+  float:right;
+}
+.comment-text {
+  font-size: 14px;
+}
+.comment-time {
+  font-size:10px;
+  color:#ccc;
+  margin-top:5px;
+  margin-bottom:10px;
+}
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 20rpx;
+  width: 100%;
+  height: 100%;
+}
+.commentBox textarea {
+  top: 12rpx;
+  margin-left: 18rpx;
+  padding-left: 10rpx;
+  width: 700rpx;
+  height: 45%;
+  background:rgba(182, 177, 177, 0.25);
+  border-radius: 10rpx;
+}
+.commentBox .van-button--primary {
+  top: 30rpx;
+  right: 24rpx;
+  float: right;
+}
+.thump_off {
+  width: 40rpx;
+  height: 40rpx;
+}
+.comment {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 50rpx;
+}

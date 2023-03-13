@@ -1,0 +1,23 @@
+<view wx:if="{{showRegiserForm}}" class="login-page">
+  <view class="container"></view>
+  <view class="login-panel">
+    <view>
+      <van-cell-group class="user-profile" inset border="{{false}}">
+        <van-field class="avatar-input" label="头像" autosize>
+          <view slot="input">
+            <button class="avatar-hook" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+              <image class="avatar" src="{{resolvedAvatarUrl}}"></image>
+            </button>
+          </view>
+        </van-field>
+        <van-field model:value="{{name}}" label="姓名" placeholder="真实姓名" />
+        <van-field model:value="{{nickName}}" type="nickname" label="昵称" placeholder="请输入昵称" border="{{false}}" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="ft">
+    <van-button customClass="login-btn" type="primary" size="large" round icon="exchange" color="linear-gradient(to right, #ff6034, #ee0a24)" bindtap='btnSubmitUserInfo'>
+      提 交
+    </van-button>
+  </view>
+</view>

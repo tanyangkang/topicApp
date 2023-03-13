@@ -1,0 +1,20 @@
+<view class="userStyle">
+  <view class="search-bar">
+    <view class="search-row">
+      <view class="input-box">
+        <image src="/images/search.png"></image>
+        <input placeholder="请输入用户名..." confirm-type="search" bindinput="inputTap" bindconfirm="confirmTap" value="{{keywords}}"></input>
+      </view>
+    </view>
+  </view>
+  <scroll-view wx:if="{{Object.keys(userList).length !== 0}}" scroll-y="true" style="height:100%;" scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+    <view wx:for="{{userList}}" wx:for-index="key" wx:for-item="value" wx:key="value">
+      <view class='py' id="{{key}}">{{key}}</view>
+      <view class="fullname" wx:for="{{value}}" wx:for-item='name' wx:key="name" data-name="{{name}}" data-id="{{value[index]}}" bindtap='selectName'>{{name}}</view>
+    </view>
+  </scroll-view>
+  <view wx:else>
+    <van-empty description="未找到用户" />
+  </view>
+</view>
+

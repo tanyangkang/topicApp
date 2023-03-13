@@ -1,0 +1,109 @@
+
+<scroll-view bindscrolltolower="btnLoadMore" scroll-y='true' style='height:100%;'>
+<view style="background:#fff;padding:0px 10px;padding-top:10px;width:100%;">
+  <view class="weui-flex" style="width:100%;">
+    <image src="{{result.authorInfo.avatarUrl}}" style="width:40px;height:40px;border:#f2f2f2 1px solid;border-radius:10%;"></image>
+    <view class="weui-flex__item">
+      <view style="margin-left:10px;position:relative;">
+        <view style="font-size:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">
+          {{result.authorInfo.name || result.authorInfo.nickName}}
+        </view>
+        <view style="font-size:12px;color:#666;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{result.createdate}}发布</view>
+      </view>
+    </view>
+    <view wx:if="{{result.isOwnTopic}}" bindtap='btnEdit'>
+      <text class='iconfont icon-more'></text>
+    </view>
+  </view>
+</view>
+<view style="width:100%;background:#fff;padding:10px;font-size:14px;">
+  <view>
+  <!-- 话题详情内容 -->
+    <view style="margin-bottom:5px; font-size: 15px;">
+      <!-- 富文本---分享给朋友会出现问题 -->
+      <rich-text wx:if="{{share === true}}" nodes="{{result.text1}}"></rich-text>
+      <text wx:else>{{result.text}}</text>
+    </view>
+    <view class="grid-item-container" wx:if="{{result.newpics.length>0}}">
+      <block wx:for="{{result.newpics}}" wx:for-index="index" wx:for-item="imgItem">
+        <view class="grid-item-child">
+          <image wx:if="{{imgItem.type == 'image'}}" lazy-load='true' mode="aspectFill" style="width: 100%; height: 100%;" bindtap="btnPicPreview" src="{{imgItem.url}}" mode="aspectFill" id="li_{{index}}"></image>
+          <video wx:else src="{{imgItem.url}}" style="width: 100%; height: 100%;" loop="{{true}}"></video>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 位置 -->
+  <view class="weui-flex" style='font-family:iconfont;font-size:14px;margin-top: 10px;'>
+    <image wx:if="{{result.gps!=''}}" style="width: 16px;height: 16px;margin-right: 5px;transform: translateY(2px);" src="/images/Location.png" />
+    <view bindtap='btnShowLocation' wx:if="{{result.gps!=''}}" style="color:#3498DB;text-overflow:ellipsis;white-space:nowrap; overflow:hidden;">
+      {{result.gpscity}}{{result.gpscity==''?'':'·'}}{{result.gpsaddr}}
+    </view>
+  </view>
+  <!-- 浏览、操作 -->
+  <view class='weui-flex' style="margin-top: 17px;">
+      <view class='weui-flex__item' style="color:#999;font-size: 13px;height: 60rpx; padding-top: 4rpx;">浏览{{result.viewcount}}</view>
+      <view class='weui-flex__item'>
+        <view style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+          <view style="display: flex; flex-direction: row; flex-wrap: nowrap; height: 30px;">
+            <image wx:if="{{result.isliked}}" src="/images/thump_on.png" class="thump_off" bindtap="btnLikeAction"></image>
+            <image wx:if="{{!result.isliked}}" src="/images/thump_off.png" class="thump_off" bindtap="btnLikeAction"></image>
+            <text style="font-size: 16px; margin-left: 8rpx;">{{result.likeSum !== null ? result.likeSum : undefined}}</text>
+          </view>
+          <view bindtap="showMessage" style="display: flex; flex-direction: row; flex-wrap: nowrap; height: 30px;">
+            <image class="comment" src="/images/comment.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+<!-- 评论区 -->
+<view class="comment-container">
+  <view class="carco">评论
+    <text>{{result.commentSum > 0 ? result.commentSum : 0}}
+    </text>
+  </view>
+  <view class="emptyBox"></view>
+  <view>
+    <van-empty wx:if="{{result.commentSum == null}}" description="暂无评论"></van-empty>
+    <view wx:else>
+      <block wx:for="{{commentlist}}">
+        <view class="comment-list">
+          <view class="weui-flex">
+            <image lazy-load='true' src="{{item.authorInfo.avatarUrl}}"></image>
+            <view class="weui-flex__item" style="padding-left:10px;">
+              <view class="nickName">
+                {{item.authorInfo.name || item.authorInfo.nickName}}
+                <!-- 删除评论 -->
+                <view wx:if="{{item.isOwnReply}}" id='tl_{{item.id}}' bindtap="btnCommentAction" class="iconfont icon-more btnAction"></view>
+              </view>
+              <view id='tl_{{index}}' class="comment-text" bindtap="btnReply">
+                <text wx:if='{{item.reply}}' style='color:#3498DB;'>回复{{item.reply.authorInfo.name || item.authorInfo.nickName}}：</text>{{item.text}}
+              </view>
+              <view class="comment-time">{{item.createdate}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view bindtap="btnLoadMore" wx:if="{{canloadmore}}" style="width:100%;font-size:16px;color:#999;text-align:center;padding:10px;">
+              点击加载更多
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 评论框 -->
+<van-popup
+  show="{{ show }}"
+  z-index="999"
+  position="bottom"
+  custom-style="height: 20%"
+  bind:close="onClose"
+>
+  <view class="commentBox">
+    <textarea bindinput='commentInput' value="{{commentstr}}" show-confirm-bar="{{false}}" maxlength="300" placeholder="{{commentplaceholder}}" name="textarea" fixed cursor-spacing="200rpx"confirm-type="done" ></textarea>
+    <view>
+      <van-button type="primary" plain size="small" bindtap="btnPostComment">发送</van-button>
+    </view>
+  </view>
+</van-popup>
+</scroll-view>

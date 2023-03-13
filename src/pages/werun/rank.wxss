@@ -1,0 +1,116 @@
+@import './index.wxss';
+.no-auth {
+  padding: 20rpx;
+}
+.userInfo {
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.userinfo-avatar {
+  margin: 0 0 0 5rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.top-tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userInfo.last::after {
+  content:'要加油哟';
+  font-size:16rpx;
+  position:absolute;
+  left:50%;
+  background-color:red;
+  color:#fff;
+  bottom:-.5em;
+  margin-left:-2.5em;
+  border-radius:1em;
+  padding:0 .5em;
+}
+
+.progress-bar-wrap {
+  width: 75vw;
+  height: 1em;
+  line-height: 40rpx;
+  background: #EFEFEF;
+  margin-bottom: 5px;
+  box-shadow: inset 0px 2px 3px 0px rgba(202,201,194,0.3);
+}
+
+.view_fengexian {
+  width: 96%;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0rpx 2% 0rpx 2%;
+}
+
+/* 两个view的样式 */
+.view_fengexian view {
+  width: 33%;
+  height: 2rpx;
+  background: linear-gradient(to right, #ead6ee, #a0f1ea);
+}
+
+/* 字体的样式 */
+.text_fengexian {
+  font-size: 25rpx;
+  color: rgb(253, 143, 143);
+  margin: 0rpx 2% 0rpx 2%;
+}
+
+.rank {
+  display: grid;
+  place-items: center;
+}
+
+.rank-wrap {
+  padding: 20rpx 0;
+  margin: 20rpx 1em;
+  display: flex;
+  border-bottom: 1px solid #e0e0e094;
+}
+.sort-item {
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+.total {
+  padding-left: 20rpx;
+}
+.sort-item.active {
+  color: #1AAD19;
+  border-bottom: 5rpx solid #1AAD19;
+}
+.tab-item {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  margin: 0 20rpx;
+}
+.tab-item.active {
+  color: #1AAD19;
+  border-bottom: 5rpx solid #1AAD19;
+}
+.tab {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 90rpx;
+  z-index: 5;
+}
+.tab-h-90 {
+  height: 90rpx;
+}
+.form {
+  position: static;
+}
+.invalid {
+  position: fixed;
+  top: 90rpx;
+}

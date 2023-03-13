@@ -1,0 +1,33 @@
+<!-- 步数排行榜--排行设置 -->
+<view wx:if="{{!code}}">
+  <view class='top-tab'>
+    <!-- <view class='total d-ib'>成员总数：{{list.length}}</view> -->
+    <view class='d-ib'>
+      <text data-id="{{'thisWeek'}}" bindtap="tabClick" class="tab-item {{tabSelected==='thisWeek'?'active':''}}">本周</text>
+      <text data-id="{{'lastWeek'}}" bindtap="tabClick" class="tab-item {{tabSelected==='lastWeek'?'active':''}}">上周</text>
+    </view>
+    <view class='f-r'>
+      <text data-id="{{'asc'}}" bindtap="sort" class="tab-item {{order==='asc'?'active':''}}">正序</text>
+      <text data-id="{{'desc'}}" bindtap="sort" class="tab-item {{order==='desc'?'active':''}}">倒序</text>
+    </view>
+  </view>
+  <!-- 步数排行列表 -->
+  <view class="rank-wrap" wx:for="{{list}}" wx:key="openid">
+    <view class="userInfo">
+      <image animation="{{item.animationRotate}}" class="userinfo-avatar" background-size="cover" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view>
+      <view class="d-f f-w-sb">
+        <text class="d-b">{{item.name || item.nickName}}</text>
+        <view class="rank">{{index+1}}</view>
+      </view>
+      <view class="d-ib va-b fs-28 p-r progress-bar-wrap o-h">
+        <view class="bc-primary h-100_ w-0 b-r-1" animation="{{tabSelected==='thisWeek'?item.animationIncrease:item.lastAnimationIncrease}}"></view>
+      </view>
+      <view class="d-f f-w-sb">
+        <text class="text-num">{{tabSelected === 'thisWeek'?item.weekStep:item.lastWeekStep}}</text>
+        <text class="d-ib va-m text-ratio">{{tabSelected === 'thisWeek'?item.ratio:item.lastRatio}}%</text>
+      </view>
+    </view>
+  </view>
+</view>

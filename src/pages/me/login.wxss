@@ -1,0 +1,77 @@
+/* pages/me/login.wxss */
+
+.login-page {
+  --page-gap: 16rpx;
+  --cell-background-color: #00000073;
+  --cell-group-inset-padding: 0 var(--page-gap);
+  --cell-line-height: auto;
+  --field-label-color: #ffffffdc;
+  --field-input-text-color: #ffffff;
+  height: 100%;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 105%;
+  height: 105%;
+  background: url(http://api.tiduyun.com/api/v2/uploads/38/578189997fef59be4f0efaa8d54d44.jpeg) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  filter: blur(6px);
+}
+
+.login-panel, .ft {
+  width: 85%;
+}
+
+.login-panel {
+  margin:0 auto;
+  position: relative;
+  padding-bottom: 170px;
+}
+
+.ft {
+  position: absolute;
+  bottom: 8%;
+  margin: 0 var(--page-gap);
+}
+
+.login-btn {
+  box-shadow: 4px 5px 16px 0px rgba(0, 0, 0, .6);
+  position: relative;
+}
+
+.user-profile {
+  text-align: left;
+  margin-bottom: 110px;
+}
+
+.avatar-input {
+  line-height: 100rpx;
+}
+
+.avatar-hook {
+  padding: 0;
+  margin-top: 6rpx;
+  background: transparent;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  clip-path: circle(50rpx at center);
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+.nickName {
+  margin-top: 40rpx;
+  color: #fff;
+  vertical-align: middle;
+  text-shadow: 4px 5px 16px 0px rgba(0, 0, 0, .6);
+}
